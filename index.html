@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculadora de IMC</title>
+    <style> header {
+
+        background-color: grey;
+        text-align: center;
+        border: solid;
+        font: caption;
+        border-style: solid;
+    }
+
+    p {
+        font-size: larger;
+    }
+    
+    </style>
+</head>
+<body>
+    <header>
+        <h1><b>Mateus Henrique de Souza Medeiros</b></h1>
+    </header>
+    <br><br>
+    <hr>
+    <br>
+    <b>Peso: (Kg)</b><br>
+    <input id="peso" type="number" placeholder="Peso"><br><br>
+    <b>Altura: (metros)</b><br>
+    <input id="altura" type="number" placeholder="Altura"><br>
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="CalcularIMC()">Calcular</button>
+    <br>
+    <b><h1><span></span></b></h1>
+    <w></w>
+    <script>
+    let peso = document.querySelector("#peso")
+    let altura = document.querySelector("#altura")
+    let result = document.querySelector('span')
+    let comment = document.querySelector("w")
+    function CalcularIMC(){
+        result.innerHTML = (parseFloat(peso.value) /  (parseFloat(altura.value ** 2))).toFixed(1)
+        if (parseFloat(result.innerHTML) < 18.5) {
+            comment.innerHTML = ">>> Abaixo do peso".bold()
+        }
+        else if (parseFloat(result.innerHTML) <= 24.9) {
+            comment.innerHTML = "Peso ideal".bold()
+        }
+        else if (parseFloat(result.innerHTML) <= 29.9){
+            comment.innerHTML = "sobrepeso".bold()
+        }
+        else if (parseFloat(result.innerHTML) <= 34.9){
+            comment.innerHTML = "obesidade grau  I".bold()
+        }
+        else if (parseFloat(result.innerHTML) <= 40){
+            comment.innerHTML = "Obesidade grau  II".bold()
+        }
+        else if (parseFloat(result.innerHTML) > 40) {
+            comment.innerHTML = "Obesidade grau  III".bold()
+        }
+
+        else{
+            comment.innerHTML = "Operação inválida.Tente novamente".bold()
+        }
+        
+    }
+    </script>
+    
+</body>
+</html>
